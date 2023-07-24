@@ -12,6 +12,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.12",
         "nativephp/electron": "^0.1.1",
+        "vedmant/laravel-feed-reader": "^1.6",
         "willvincent/feeds": "^2.5"
     },
     "require-dev": {

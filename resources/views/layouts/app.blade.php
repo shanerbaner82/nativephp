@@ -7,11 +7,11 @@
     <title>Native Larajobs</title>
 
     @vite('resources/css/app.css')
-    @livewireStyles
+    <livewire:styles />
 </head>
-<body class="antialiased">
+<body class="antialiased ">
 {{$slot}}
 
-@livewireScripts
+<livewire:scripts />
 </body>
 </html>

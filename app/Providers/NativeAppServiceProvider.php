@@ -17,7 +17,7 @@ class NativeAppServiceProvider
      */
     public function boot(): void
     {
-        Window::open()->height(800)->width(800);
-        MenuBar::create();
+//        Window::open()->height(800)->width(800);
+        MenuBar::create()->height(700)->icon(storage_path('app/menuBarIconTemplate.png'));;
     }
 }

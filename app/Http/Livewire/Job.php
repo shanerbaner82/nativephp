@@ -11,12 +11,14 @@ class Job extends Component
     public string $title = '';
     public string|null $description = '';
     public string $date = '';
+    public string $author = '';
 
     public function visitJob()
     {
-        dd($this);
         Window::open()
-            ->url($this->link);
+            ->url($this->link)
+            ->width(800)
+            ->height(600);
     }
     public function render()
     {

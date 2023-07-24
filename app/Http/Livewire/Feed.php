@@ -3,21 +3,33 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use willvincent\Feeds\Facades\FeedsFacade as Feeds;
+use Native\Laravel\Facades\Window;
+use Native\Laravel\Facades\Notification;
+use Vedmant\FeedReader\Facades\FeedReader;
 
 class Feed extends Component
 {
-    public $data;
+    public function visitLarajobs()
+    {
+        Window::open()
+            ->url('https://larajobs.com')
+            ->width(800)
+            ->height(600);
+    }
+
+//    public function notify()
+//    {
+//        Notification::title('Hello from NativePHP')
+//            ->message('This is a detail message coming from your Laravel app.')
+//            ->event(\App\Events\NewJobDetected::class)
+//            ->show();
+//    }
 
     public function render()
     {
-        $feed = Feeds::make('https://larajobs.com/feed');
-        $this->data = array(
-            'title'     => $feed->get_title(),
-            'permalink' => $feed->get_permalink(),
-            'items'     => $feed->get_items(),
-        );
-//        dd($this->data);
-        return view('livewire.feed');
+        $feed = FeedReader::read('https://larajobs.com/feed');
+        return view('livewire.feed', [
+            'feed' => $feed
+        ]);
     }
 }
